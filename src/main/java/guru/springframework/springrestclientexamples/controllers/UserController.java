@@ -16,7 +16,7 @@ import org.springframework.web.server.ServerWebExchange;
 @Controller
 public class UserController {
 
-    private final ApiService apiService;
+    private ApiService apiService;
 
     public UserController(ApiService apiService) {
         this.apiService = apiService;
@@ -32,10 +32,10 @@ public class UserController {
 
         MultiValueMap<String, String> map = serverWebExchange.getFormData().block();
 
-        Integer limit = Integer.parseInt(map.get("limit").get(0));
+        Integer limit = new Integer(map.get("limit").get(0));
 
         //default if null or zero
-        if(limit == 0){
+        if(limit == null || limit == 0){
             limit = 10;
         }
 

@@ -15,6 +15,7 @@ import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ApiServiceImplTest {
+
     @Autowired
     ApiService apiService;
 
@@ -22,9 +23,12 @@ public class ApiServiceImplTest {
     public void setUp() throws Exception {
     }
 
+
     @Test
     public void testGetUsers() throws Exception {
+
         List<User> users = apiService.getUsers(3);
+
         assertEquals(3, users.size());
     }
 }

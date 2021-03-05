@@ -3,26 +3,26 @@ package guru.springframework.springrestclientexamples.services;
 import guru.springframework.api.domain.User;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
+/**
+ * Created by jt on 9/21/17.
+ */
 @Service
-public class ApiServiceImpl implements ApiService {
-    private RestTemplate restTemplate;
-    private String api_url;
+public class ApiServiceImpl implements  ApiService {
 
-    public ApiServiceImpl(RestTemplate restTemplate, String api_url) {
+    private RestTemplate restTemplate;
+
+    public ApiServiceImpl(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
-        this.api_url = api_url;
     }
 
     @Override
     public List<User> getUsers(Integer limit) {
-        UriComponentsBuilder uriBuilder = UriComponentsBuilder
-                .fromUriString(api_url)
-                .queryParam("limit", limit);
-        List<User> userData = restTemplate.getForObject(uriBuilder.toUriString(), List.class);
+
+        List<User> userData = restTemplate.getForObject("https://jsonplaceholder.typicode.com/users?_limit=" + limit, List.class);
+
         return userData;
     }
 }
