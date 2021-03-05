@@ -1,32 +1,31 @@
-
 package guru.springframework.api.domain;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Job implements Serializable
+public class Geo implements Serializable
 {
 
-    private String title;
-    private String company;
+    private String lat;
+    private String lng;
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-    private final static long serialVersionUID = -4985150429002262656L;
+    private final static long serialVersionUID = -7734379883614215164L;
 
-    public String getTitle() {
-        return title;
+    public String getLat() {
+        return lat;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setLat(String lat) {
+        this.lat = lat;
     }
 
-    public String getCompany() {
-        return company;
+    public String getLng() {
+        return lng;
     }
 
-    public void setCompany(String company) {
-        this.company = company;
+    public void setLng(String lng) {
+        this.lng = lng;
     }
 
     public Map<String, Object> getAdditionalProperties() {
