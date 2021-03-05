@@ -22,6 +22,7 @@ public class ApiServiceImpl implements  ApiService {
     public List<User> getUsers(Integer limit) {
 
         List<User> userData = restTemplate.getForObject("https://jsonplaceholder.typicode.com/users?_limit=" + limit, List.class);
+
         return userData;
     }
 }
